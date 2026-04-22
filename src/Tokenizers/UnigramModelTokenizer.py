@@ -1,7 +1,5 @@
 import numpy as np
 import os 
-import pandas as pd
-import kagglehub
 import sentencepiece as spm
 
 class UnigramModelTokenizer:
@@ -9,6 +7,7 @@ class UnigramModelTokenizer:
         self.model_path = model_path
         self.sp = spm.SentencePieceProcessor()
         self.sp.load(model_path)
+        print(f"Loaded Unigram model from {model_path}")
     def tokenize(self, text):
         return self.sp.encode(text, out_type=str)
     def detokenize(self, tokens):
